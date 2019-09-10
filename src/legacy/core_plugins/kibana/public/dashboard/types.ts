@@ -108,6 +108,7 @@ export interface DashboardAppStateParameters {
   options: {
     hidePanelTitles: boolean;
     useMargins: boolean;
+    freezeFilterPanel: boolean;
   };
   query: Query | string;
   filters: Filter[];

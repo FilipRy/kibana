@@ -119,6 +119,7 @@ module.directive('kbnTopNavHelper', (reactDirective) => {
       'showQueryInput',
       'showDatePicker',
       'showSaveQuery',
+      'freezeFilterPanel',
 
       'appName',
       'screenTitle',

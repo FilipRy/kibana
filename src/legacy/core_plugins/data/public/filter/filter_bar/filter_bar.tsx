@@ -41,6 +41,7 @@ interface Props {
   filters: Filter[];
   onFiltersUpdated: (filters: Filter[]) => void;
   className: string;
+  freezeFilterPanel: boolean;
   indexPatterns: IndexPattern[];
   intl: InjectedIntl;
   uiSettings: UiSettingsClientContract;
@@ -60,7 +61,9 @@ class FilterBarUI extends Component<Props, State> {
 
     return (
       <EuiFlexGroup
-        className="globalFilterGroup"
+        className={
+          this.props.freezeFilterPanel ? 'globalFilterGroup' : 'globalFilterGroup frozenFilterTop'
+        }
         gutterSize="none"
         alignItems="flexStart"
         responsive={false}

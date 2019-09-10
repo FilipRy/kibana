@@ -122,6 +122,7 @@ interface State {
   panels: { [key: string]: DashboardPanelState };
   viewMode: ViewMode;
   useMargins: boolean;
+  freezeFilterPanel: boolean;
   expandedPanelId?: string;
 }
 
@@ -146,6 +147,7 @@ class DashboardGridUi extends React.Component<DashboardGridProps, State> {
       panels: this.props.container.getInput().panels,
       viewMode: this.props.container.getInput().viewMode,
       useMargins: this.props.container.getInput().useMargins,
+      freezeFilterPanel: this.props.container.getInput().freezeFilterPanel,
       expandedPanelId: this.props.container.getInput().expandedPanelId,
     };
   }
@@ -253,9 +255,13 @@ class DashboardGridUi extends React.Component<DashboardGridProps, State> {
         'dshDashboardGrid__item--expanded': expandPanel,
         'dshDashboardGrid__item--hidden': hidePanel,
       });
+      const freezeFilterPanel: boolean = this.props.container.getInput().freezeFilterPanel;
       return (
         <div
-          style={{ zIndex: focusedPanelIndex === panel.explicitInput.id ? 2 : 'auto' }}
+          style={{
+            zIndex: focusedPanelIndex === panel.explicitInput.id ? 2 : 'auto',
+            'margin-top': !freezeFilterPanel ? '40px' : '0px',
+          }}
           className={classes}
           key={panel.explicitInput.id}
           data-test-subj="dashboardPanel"

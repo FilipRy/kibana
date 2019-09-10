@@ -39,12 +39,16 @@ export function showOptionsPopover({
   onUseMarginsChange,
   hidePanelTitles,
   onHidePanelTitlesChange,
+  freezeFilterPanel,
+  onFreezeFilterPanelChange,
 }: {
   anchorElement: HTMLElement;
   useMargins: boolean;
   onUseMarginsChange: (useMargins: boolean) => void;
   hidePanelTitles: boolean;
   onHidePanelTitlesChange: (hideTitles: boolean) => void;
+  freezeFilterPanel: boolean;
+  onFreezeFilterPanelChange: (freezeFilterPanel: boolean) => void;
 }) {
   if (isOpen) {
     onClose();
@@ -62,6 +66,8 @@ export function showOptionsPopover({
           onUseMarginsChange={onUseMarginsChange}
           hidePanelTitles={hidePanelTitles}
           onHidePanelTitlesChange={onHidePanelTitlesChange}
+          freezeFilterPanel={freezeFilterPanel}
+          onFreezeFilterPanelChange={onFreezeFilterPanelChange}
         />
       </EuiWrappingPopover>
     </I18nContext>

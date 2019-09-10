@@ -31,6 +31,7 @@ export interface DashboardViewportProps {
 interface State {
   isFullScreenMode: boolean;
   useMargins: boolean;
+  freezeFilterPanel: boolean;
   title: string;
   description?: string;
   panels: { [key: string]: PanelState };
@@ -44,12 +45,19 @@ export class DashboardViewport extends React.Component<DashboardViewportProps, S
   private mounted: boolean = false;
   constructor(props: DashboardViewportProps) {
     super(props);
-    const { isFullScreenMode, panels, useMargins, title } = this.props.container.getInput();
+    const {
+      isFullScreenMode,
+      panels,
+      useMargins,
+      freezeFilterPanel,
+      title,
+    } = this.props.container.getInput();
 
     this.state = {
       isFullScreenMode,
       panels,
       useMargins,
+      freezeFilterPanel,
       title,
     };
   }
@@ -57,12 +65,19 @@ export class DashboardViewport extends React.Component<DashboardViewportProps, S
   public componentDidMount() {
     this.mounted = true;
     this.subscription = this.props.container.getInput$().subscribe(() => {
-      const { isFullScreenMode, useMargins, title, description } = this.props.container.getInput();
+      const {
+        isFullScreenMode,
+        useMargins,
+        title,
+        description,
+        freezeFilterPanel,
+      } = this.props.container.getInput();
       if (this.mounted) {
         this.setState({
           isFullScreenMode,
           description,
           useMargins,
+          freezeFilterPanel,
           title,
         });
       }

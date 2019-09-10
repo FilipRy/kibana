@@ -99,6 +99,7 @@ export const dashboardInput: DashboardContainerInput = {
   useMargins: true,
   id: '',
   hidePanelTitles: false,
+  freezeFilterPanel: false,
   query: {
     query: '',
     language: 'kuery',

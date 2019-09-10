@@ -52,6 +52,7 @@ export interface DashboardContainerInput extends ContainerInput {
   refreshConfig?: RefreshInterval;
   expandedPanelId?: string;
   useMargins: boolean;
+  freezeFilterPanel: boolean;
   title: string;
   description?: string;
   isFullScreenMode: boolean;

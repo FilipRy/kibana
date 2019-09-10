@@ -323,6 +323,7 @@ app.controller('timelion', function (
     $scope.model = {
       timeRange: timefilter.getTime(),
       refreshInterval: timefilter.getRefreshInterval(),
+      freezeFilterPanel: false
     };
 
     $scope.$listen($scope.state, 'fetch_with_changes', $scope.search);

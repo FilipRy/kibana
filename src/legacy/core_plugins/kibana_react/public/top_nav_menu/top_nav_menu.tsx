@@ -68,6 +68,7 @@ export function TopNavMenu(props: Props) {
         showQueryInput={props.showQueryInput}
         showFilterBar={props.showFilterBar}
         showDatePicker={props.showDatePicker}
+        freezeFilterPanel={props.freezeFilterPanel} // TODO
         appName={props.appName!}
         screenTitle={props.screenTitle!}
         onQuerySubmit={props.onQuerySubmit}
@@ -115,5 +116,6 @@ TopNavMenu.defaultProps = {
   showQueryInput: true,
   showDatePicker: true,
   showFilterBar: true,
+  freezeFilterPanel: false,
   screenTitle: '',
 };

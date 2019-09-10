@@ -7,3 +7,10 @@
   min-width: 100%;
   min-height: 100%;
 }
+
+.frozenFilterTop {
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  background-color: #fafbfd;
+}

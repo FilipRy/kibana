@@ -65,6 +65,7 @@ export interface SearchBarProps {
   showDatePicker?: boolean;
   dateRangeFrom?: string;
   dateRangeTo?: string;
+  freezeFilterPanel: boolean;
   // Autorefresh
   isRefreshPaused?: boolean;
   refreshInterval?: number;
@@ -424,6 +425,7 @@ class SearchBarUI extends Component<SearchBarProps, State> {
             <FilterBar
               className="globalFilterGroup__filterBar"
               uiSettings={this.props.uiSettings}
+              freezeFilterPanel={this.props.freezeFilterPanel}
               filters={this.props.filters!}
               onFiltersUpdated={this.getFilterUpdateFunction()}
               indexPatterns={this.props.indexPatterns!}

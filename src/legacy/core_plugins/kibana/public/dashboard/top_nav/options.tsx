@@ -27,18 +27,22 @@ interface Props {
   onUseMarginsChange: (useMargins: boolean) => void;
   hidePanelTitles: boolean;
   onHidePanelTitlesChange: (hideTitles: boolean) => void;
+  freezeFilterPanel: boolean;
+  onFreezeFilterPanelChange: (freezeFilterPanel: boolean) => void;
   intl: InjectedIntl;
 }
 
 interface State {
   useMargins: boolean;
   hidePanelTitles: boolean;
+  freezeFilterPanel: boolean;
 }
 
 class OptionsMenuUi extends Component<Props, State> {
   state = {
     useMargins: this.props.useMargins,
     hidePanelTitles: this.props.hidePanelTitles,
+    freezeFilterPanel: this.props.freezeFilterPanel,
   };
 
   constructor(props: Props) {
@@ -55,6 +59,12 @@ class OptionsMenuUi extends Component<Props, State> {
     const isChecked = !evt.target.checked;
     this.props.onHidePanelTitlesChange(isChecked);
     this.setState({ hidePanelTitles: isChecked });
+  };
+
+  handleFreezeFilterPanelChange = (evt: any) => {
+    const isChecked = !evt.target.checked;
+    this.props.onFreezeFilterPanelChange(isChecked);
+    this.setState({ freezeFilterPanel: isChecked });
   };
 
   render() {
@@ -81,6 +91,18 @@ class OptionsMenuUi extends Component<Props, State> {
             checked={!this.state.hidePanelTitles}
             onChange={this.handleHidePanelTitlesChange}
             data-test-subj="dashboardPanelTitlesCheckbox"
+          />
+        </EuiFormRow>
+
+        <EuiFormRow>
+          <EuiSwitch
+            label={this.props.intl.formatMessage({
+              id: 'kbn.dashboard.topNav.options.freezeFilterPanel',
+              defaultMessage: 'Freeze filter panel',
+            })}
+            checked={!this.state.freezeFilterPanel}
+            onChange={this.handleFreezeFilterPanelChange}
+            data-test-subj="dashboardPanelFreezeFilterPanelCheckbox"
           />
         </EuiFormRow>
       </EuiForm>

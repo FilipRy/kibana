@@ -282,6 +282,15 @@ export class DashboardStateManager {
     this.saveState();
   }
 
+  public getFreezeFilterPanel() {
+    return this.appState.options.freezeFilterPanel;
+  }
+
+  public setFreezeFilterPanel(freezeFilterPanel: boolean) {
+    this.appState.options.freezeFilterPanel = freezeFilterPanel;
+    this.saveState();
+  }
+
   public getTimeRestore() {
     return this.appState.timeRestore;
   }

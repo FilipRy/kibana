@@ -63,6 +63,7 @@ export interface DashboardAppScope extends ng.IScope {
       | TimeRange
       | { to: string | moment.Moment | undefined; from: string | moment.Moment | undefined };
     refreshInterval: any;
+    freezeFilterPanel: boolean;
   };
   savedQuery?: SavedQuery;
   refreshInterval: any;

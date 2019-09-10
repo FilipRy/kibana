@@ -213,6 +213,7 @@ export class DashboardAppController {
         panels: embeddablesMap,
         isFullScreenMode: dashboardStateManager.getFullScreenMode(),
         useMargins: dashboardStateManager.getUseMargins(),
+        freezeFilterPanel: dashboardStateManager.getFreezeFilterPanel(),
         lastReloadRequestTime,
         title: dashboardStateManager.getTitle(),
         description: dashboardStateManager.getDescription(),
@@ -231,6 +232,7 @@ export class DashboardAppController {
         description: dashboardStateManager.getDescription(),
         timeRange: timefilter.getTime(),
         refreshInterval: timefilter.getRefreshInterval(),
+        freezeFilterPanel: dashboardStateManager.getFreezeFilterPanel(),
       };
       $scope.panels = dashboardStateManager.getPanels();
       $scope.screenTitle = dashboardStateManager.getTitle();
@@ -766,6 +768,10 @@ export class DashboardAppController {
         hidePanelTitles: dashboardStateManager.getHidePanelTitles(),
         onHidePanelTitlesChange: (isChecked: boolean) => {
           dashboardStateManager.setHidePanelTitles(isChecked);
+        },
+        freezeFilterPanel: dashboardStateManager.getFreezeFilterPanel(),
+        onFreezeFilterPanelChange: (isChecked: boolean) => {
+          dashboardStateManager.setFreezeFilterPanel(isChecked);
         },
       });
     };
